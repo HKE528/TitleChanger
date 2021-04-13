@@ -22,10 +22,19 @@ namespace TitleChanger
 
         }
 
-        //파일 드레그 앤 드롭 시
         private void fileListView_DragDrop(object sender, DragEventArgs e)
         {
+            fileListView.Items.Clear();
 
+        }
+
+        private void fileListView_DragEnter(object sender, DragEventArgs e)
+        {
+            //드래그시 커서 모양 변경
+            if(e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
         }
     }
 }
