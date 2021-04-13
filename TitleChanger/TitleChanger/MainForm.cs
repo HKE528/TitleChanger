@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,9 @@ namespace TitleChanger
 {
     public partial class MainPanel : Form
     {
-        string[] filesPath;
-        List<string> files = new List<string>();
+        private string[] filesPath;
+        private List<string> files = new List<string>();
+        private DirectoryInfo dirInfo;
 
         public MainPanel()
         {
@@ -32,13 +34,26 @@ namespace TitleChanger
 
             filesPath = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-            foreach(string file in filesPath)
+            if(Directory.Exists(filesPath[0]))
             {
-                var fileName = file.Split('\\').Last();
-                files.Add(fileName);
+                dirInfo = new DirectoryInfo(filesPath[0]);
+
+                foreach(FileInfo file in dirInfo.GetFiles())
+                {
+                    var fileName = file.Name;
+                    files.Add(fileName);
+                }
+            }
+            else
+            {
+                foreach (string file in filesPath)
+                {
+                    var fileName = file.Split('\\').Last();
+                    files.Add(fileName);
+                }
             }
 
-            foreach(string file in files)
+            foreach (string file in files)
             {
                 fileListView.Items.Add(file);
             }
