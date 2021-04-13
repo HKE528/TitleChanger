@@ -12,6 +12,9 @@ namespace TitleChanger
 {
     public partial class MainPanel : Form
     {
+        string[] filesPath;
+        List<string> files = new List<string>();
+
         public MainPanel()
         {
             InitializeComponent();
@@ -25,7 +28,20 @@ namespace TitleChanger
         private void fileListView_DragDrop(object sender, DragEventArgs e)
         {
             fileListView.Items.Clear();
+            files.Clear();
 
+            filesPath = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            foreach(string file in filesPath)
+            {
+                var fileName = file.Split('\\').Last();
+                files.Add(fileName);
+            }
+
+            foreach(string file in files)
+            {
+                fileListView.Items.Add(file);
+            }
         }
 
         private void fileListView_DragEnter(object sender, DragEventArgs e)

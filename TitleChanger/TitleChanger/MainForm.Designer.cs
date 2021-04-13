@@ -52,6 +52,7 @@ namespace TitleChanger
             this.fileListView.Size = new System.Drawing.Size(905, 750);
             this.fileListView.TabIndex = 0;
             this.fileListView.UseCompatibleStateImageBehavior = false;
+            this.fileListView.View = System.Windows.Forms.View.List;
             this.fileListView.DragDrop += new System.Windows.Forms.DragEventHandler(this.fileListView_DragDrop);
             this.fileListView.DragEnter += new System.Windows.Forms.DragEventHandler(this.fileListView_DragEnter);
             // 
