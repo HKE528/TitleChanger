@@ -35,15 +35,16 @@ namespace TitleChanger
             this.tbSetTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbDiffSaveName = new System.Windows.Forms.CheckBox();
-            this.tvPath = new System.Windows.Forms.TextBox();
             this.btnFindPath = new System.Windows.Forms.Button();
+            this.tvPath = new System.Windows.Forms.TextBox();
+            this.cbDiffSaveName = new System.Windows.Forms.CheckBox();
             this.setTitlePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileListView
             // 
+            this.fileListView.AllowDrop = true;
             this.fileListView.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.fileListView.HideSelection = false;
             this.fileListView.Location = new System.Drawing.Point(10, 10);
@@ -51,6 +52,7 @@ namespace TitleChanger
             this.fileListView.Size = new System.Drawing.Size(905, 750);
             this.fileListView.TabIndex = 0;
             this.fileListView.UseCompatibleStateImageBehavior = false;
+            this.fileListView.DragDrop += new System.Windows.Forms.DragEventHandler(this.fileListView_DragDrop);
             // 
             // btnStart
             // 
@@ -104,25 +106,6 @@ namespace TitleChanger
             this.panel1.Size = new System.Drawing.Size(735, 105);
             this.panel1.TabIndex = 3;
             // 
-            // cbDiffSaveName
-            // 
-            this.cbDiffSaveName.AutoSize = true;
-            this.cbDiffSaveName.Font = new System.Drawing.Font("굴림", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbDiffSaveName.Location = new System.Drawing.Point(10, 8);
-            this.cbDiffSaveName.Name = "cbDiffSaveName";
-            this.cbDiffSaveName.Size = new System.Drawing.Size(319, 36);
-            this.cbDiffSaveName.TabIndex = 0;
-            this.cbDiffSaveName.Text = "다른 이름으로 저장";
-            this.cbDiffSaveName.UseVisualStyleBackColor = true;
-            // 
-            // tvPath
-            // 
-            this.tvPath.Font = new System.Drawing.Font("굴림", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tvPath.Location = new System.Drawing.Point(10, 50);
-            this.tvPath.Name = "tvPath";
-            this.tvPath.Size = new System.Drawing.Size(555, 44);
-            this.tvPath.TabIndex = 1;
-            // 
             // btnFindPath
             // 
             this.btnFindPath.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -134,9 +117,27 @@ namespace TitleChanger
             this.btnFindPath.Text = "경로 선택";
             this.btnFindPath.UseVisualStyleBackColor = false;
             // 
+            // tvPath
+            // 
+            this.tvPath.Font = new System.Drawing.Font("굴림", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tvPath.Location = new System.Drawing.Point(10, 50);
+            this.tvPath.Name = "tvPath";
+            this.tvPath.Size = new System.Drawing.Size(555, 44);
+            this.tvPath.TabIndex = 1;
+            // 
+            // cbDiffSaveName
+            // 
+            this.cbDiffSaveName.AutoSize = true;
+            this.cbDiffSaveName.Font = new System.Drawing.Font("굴림", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbDiffSaveName.Location = new System.Drawing.Point(10, 8);
+            this.cbDiffSaveName.Name = "cbDiffSaveName";
+            this.cbDiffSaveName.Size = new System.Drawing.Size(319, 36);
+            this.cbDiffSaveName.TabIndex = 0;
+            this.cbDiffSaveName.Text = "다른 이름으로 저장";
+            this.cbDiffSaveName.UseVisualStyleBackColor = true;
+            // 
             // MainPanel
             // 
-            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 941);

@@ -21,5 +21,11 @@ namespace TitleChanger
         {
 
         }
+
+        //파일 드레그 앤 드롭 시
+        private void fileListView_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
     }
 }
