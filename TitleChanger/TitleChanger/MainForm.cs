@@ -141,7 +141,7 @@ namespace TitleChanger
             }
 
             MessageBox.Show("파일 변환이 완료되었습니다.!!");
-            refreshList()
+            refreshList();
         }
 
         private void transFile(string newFileName)
@@ -189,7 +189,16 @@ namespace TitleChanger
 
         private void btnFindPath_Click(object sender, EventArgs e)
         {
+            string path = "";
 
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+
+            if(folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                path = folderBrowser.SelectedPath;
+            }
+
+            tvPath.Text = path;
         }
     } 
 }
