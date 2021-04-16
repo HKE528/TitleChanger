@@ -67,6 +67,7 @@ namespace TitleChanger
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "변환";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // setTitlePanel
             // 

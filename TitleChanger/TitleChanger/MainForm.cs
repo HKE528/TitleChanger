@@ -64,7 +64,8 @@ namespace TitleChanger
                     files.Add(fileName);
                 }
             }
-            extension = "." + files[0].Split('.').Last();
+
+            extension = files[0].Split('.').Last();
             bool eqExtension = true;
 
             foreach (string file in files)
@@ -72,6 +73,7 @@ namespace TitleChanger
                 if (extension != file.Split('.').Last())
                     eqExtension = false;
             }
+            extension = "." + extension;
 
             if (eqExtension)
             {
@@ -84,9 +86,6 @@ namespace TitleChanger
             {
                 MessageBox.Show("파일들의 확장자가 서로 다릅니다.", "확장자 경고!!");
             }
-
-            Console.WriteLine(commonPath);
-            Console.WriteLine("확장자 : " + extension);
         }
 
         private void fileListView_DragEnter(object sender, DragEventArgs e)
@@ -101,8 +100,13 @@ namespace TitleChanger
         private void btnStart_Click(object sender, EventArgs e)
         {
             string newFileName = tbSetTitle.Text;
-            //foreach(string s in )
+            for(int i = 1; i <= files.Count(); i++)
+            {
+                string numbering = String.Format(" - {0:D2}", i);
+                string newPath = commonPath + "\\" + newFileName + numbering + extension;
 
+                Console.WriteLine(newPath);
+            }
         }
     }
 }
