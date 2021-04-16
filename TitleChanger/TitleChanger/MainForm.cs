@@ -26,7 +26,8 @@ namespace TitleChanger
 
         private void MainPanel_Load(object sender, EventArgs e)
         {
-
+            tvPath.Enabled = false;
+            btnFindPath.Enabled = false;
         }
 
         private void fileListView_DragDrop(object sender, DragEventArgs e)
@@ -131,6 +132,20 @@ namespace TitleChanger
             }
 
             return true;
+        }
+
+        private void cbDiffSaveName_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbDiffSaveName.Checked)
+            {
+                tvPath.Enabled = true;
+                btnFindPath.Enabled = true;
+            }
+            else
+            {
+                tvPath.Enabled = false;
+                btnFindPath.Enabled = false;
+            }
         }
     }
 }

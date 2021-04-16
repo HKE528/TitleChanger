@@ -138,6 +138,7 @@ namespace TitleChanger
             this.cbDiffSaveName.TabIndex = 0;
             this.cbDiffSaveName.Text = "다른 이름으로 저장";
             this.cbDiffSaveName.UseVisualStyleBackColor = true;
+            this.cbDiffSaveName.CheckedChanged += new System.EventHandler(this.cbDiffSaveName_CheckedChanged);
             // 
             // MainPanel
             // 
