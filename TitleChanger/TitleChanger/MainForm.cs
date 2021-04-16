@@ -141,6 +141,7 @@ namespace TitleChanger
             }
 
             MessageBox.Show("파일 변환이 완료되었습니다.!!");
+            refreshList()
         }
 
         private void transFile(string newFileName)
