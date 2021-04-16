@@ -100,13 +100,33 @@ namespace TitleChanger
         private void btnStart_Click(object sender, EventArgs e)
         {
             string newFileName = tbSetTitle.Text;
+            if (!checkExist())
+            {
+                MessageBox.Show("파일이 존재하지 않습니다.", "경고!!");
+                return;
+            }
+            
             for(int i = 1; i <= files.Count(); i++)
             {
                 string numbering = String.Format(" - {0:D2}", i);
                 string newPath = commonPath + "\\" + newFileName + numbering + extension;
-
-                Console.WriteLine(newPath);
             }
+        }
+
+        private bool checkExist()
+        {
+            for(int i = 0; i < files.Count(); i++)
+            {
+                string file = commonPath + '\\' + files[i];
+                Console.WriteLine(file);
+
+                if (!File.Exists(file))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
