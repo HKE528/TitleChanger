@@ -64,12 +64,26 @@ namespace TitleChanger
                     files.Add(fileName);
                 }
             }
+            extension = "." + files[0].Split('.').Last();
+            bool eqExtension = true;
 
             foreach (string file in files)
             {
-                fileListView.Items.Add(file);
+                if (extension != file.Split('.').Last())
+                    eqExtension = false;
             }
-            extension = "." + files[0].Split('.').Last();
+
+            if (eqExtension)
+            {
+                foreach (string file in files)
+                {
+                    fileListView.Items.Add(file);
+                }
+            }
+            else
+            {
+                MessageBox.Show("파일들의 확장자가 서로 다릅니다.", "확장자 경고!!");
+            }
 
             Console.WriteLine(commonPath);
             Console.WriteLine("확장자 : " + extension);
