@@ -69,8 +69,10 @@ namespace TitleChanger
             {
                 fileListView.Items.Add(file);
             }
+            extension = "." + files[0].Split('.').Last();
 
             Console.WriteLine(commonPath);
+            Console.WriteLine("확장자 : " + extension);
         }
 
         private void fileListView_DragEnter(object sender, DragEventArgs e)
@@ -80,6 +82,13 @@ namespace TitleChanger
             {
                 e.Effect = DragDropEffects.Copy;
             }
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            string newFileName = tbSetTitle.Text;
+            //foreach(string s in )
+
         }
     }
 }
