@@ -119,6 +119,7 @@ namespace TitleChanger
             this.btnFindPath.TabIndex = 2;
             this.btnFindPath.Text = "경로 선택";
             this.btnFindPath.UseVisualStyleBackColor = false;
+            this.btnFindPath.Click += new System.EventHandler(this.btnFindPath_Click);
             // 
             // tvPath
             // 
