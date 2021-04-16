@@ -110,7 +110,12 @@ namespace TitleChanger
             {
                 string numbering = String.Format(" - {0:D2}", i);
                 string newPath = commonPath + "\\" + newFileName + numbering + extension;
+                string oldPath = commonPath + '\\' + files[i-1];
+
+                File.Move(oldPath, newPath);
             }
+
+            MessageBox.Show("파일 변환이 완료되었습니다.!!");
         }
 
         private bool checkExist()
@@ -118,7 +123,6 @@ namespace TitleChanger
             for(int i = 0; i < files.Count(); i++)
             {
                 string file = commonPath + '\\' + files[i];
-                Console.WriteLine(file);
 
                 if (!File.Exists(file))
                 {
