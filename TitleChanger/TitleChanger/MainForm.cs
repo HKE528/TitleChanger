@@ -133,18 +133,32 @@ namespace TitleChanger
             if (cbDiffSaveName.Checked)
             {
                 //다른이름으로 저장
+                string newPath = tvPath.Text;
+                saveDiffFile(newPath, newFileName);
             }
             else
             {
                 //기존파일 바꾸기
-                transFile(newFileName);
+                saveOver(newFileName);
             }
 
             MessageBox.Show("파일 변환이 완료되었습니다.!!");
             refreshList();
         }
 
-        private void transFile(string newFileName)
+        private void saveDiffFile(string newDirPath, string newFileName)
+        {
+            for (int i = 1; i <= files.Count(); i++)
+            {
+                string numbering = String.Format(" - {0:D2}", i);
+                string newPath = newDirPath + "\\" + newFileName + numbering + extension;
+                string oldPath = commonPath + '\\' + files[i - 1];
+
+                File.Copy(oldPath, newPath);
+            }
+        }
+
+        private void saveOver(string newFileName)
         {
             for (int i = 1; i <= files.Count(); i++)
             {
